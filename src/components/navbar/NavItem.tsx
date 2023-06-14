@@ -4,11 +4,12 @@ type Props = {
   name: string;
   link: string;
   isActive: boolean;
+  className?: string;
 };
 
-function NavItem({ link, name, isActive }: Props) {
+function NavItem({ link, name, isActive, className }: Props) {
   return (
-    <li>
+    <li className={className}>
       <a
         className={clsx(
           "text-lg font-semibold hover:text-teal-200",
