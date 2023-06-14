@@ -29,7 +29,7 @@ function Navbar() {
   return (
     <>
       <nav className="bg-slate-800 py-4 drop-shadow-sm flex justify-end">
-        <HiMenu className="text-white mr-7 text-2xl block md:hidden" />
+        <HiMenu className="text-white mr-7 block md:hidden" />
         <ul className="w-full gap-12 hidden md:flex md:justify-center">
           {navItems.map((item) => {
             return (
@@ -42,7 +42,7 @@ function Navbar() {
           })}
         </ul>
       </nav>
-      <Sidebar />
+      <Sidebar items={navItems} />
     </>
   );
 }
