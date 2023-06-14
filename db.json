@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Learning React",
+      "author": "Julian",
+      "img": "https://source.unsplash.com/featured/300x201",
+      "date": "12.09.2023",
+      "content": "I'm baby chillwave next level hoodie, salvia taiyaki biodiesel bruh. Viral health goth selvage dreamcatcher tattooed. Franzen squid celiac glossier art party, four dollar toast sriracha gastropub flexitarian kombucha pabst fit vexillologist. Street art roof party twee +1 pop-up, poke chia."
+    },
+    {
+      "id": 2,
+      "title": "Learning Javascript",
+      "author": "Chirag",
+      "img": "https://source.unsplash.com/featured/300x201",
+      "date": "23.10.2023",
+      "content": "I'm baby chillwave next level hoodie, salvia taiyaki biodiesel bruh. Viral health goth selvage dreamcatcher tattooed. Franzen squid celiac glossier art party, four dollar toast sriracha gastropub flexitarian kombucha pabst fit vexillologist. Street art roof party twee +1 pop-up, poke chia."
+    },
+    {
+      "id": 3,
+      "title": "Learning Typescript",
+      "author": "Dan",
+      "img": "https://source.unsplash.com/featured/300x201",
+      "date": "15.11.2023",
+      "content": "I'm baby chillwave next level hoodie, salvia taiyaki biodiesel bruh. Viral health goth selvage dreamcatcher tattooed. Franzen squid celiac glossier art party, four dollar toast sriracha gastropub flexitarian kombucha pabst fit vexillologist. Street art roof party twee +1 pop-up, poke chia."
+    }
+  ]
+}

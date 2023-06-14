@@ -1,6 +1,6 @@
 function BlogCard() {
   return (
-    <div className="w-[350px] max-h-[600px] bg-white rounded-md overflow-hidden shadow-md">
+    <div className="w-[350px] max-h-[600px] bg-white rounded-md overflow-hidden shadow-md cursor-pointer transition ease-in-out duration-300  hover:scale-105">
       <div className="relative">
         <img
           src="https://source.unsplash.com/featured/300x201"
@@ -19,9 +19,6 @@ function BlogCard() {
           commodi, ullam ab laudantium harum doloremque beatae ratione
           voluptatem vero adipisci. Libero harum perspiciatis at.
         </p>
-        <button className="bg-primary px-6 py-2 rounded-lg text-white shadow-sm mt-4">
-          read more...
-        </button>
       </div>
     </div>
   );
