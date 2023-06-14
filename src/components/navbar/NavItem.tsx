@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 type Props = {
   name: string;
   link: string;
@@ -8,9 +10,10 @@ function NavItem({ link, name, isActive }: Props) {
   return (
     <li>
       <a
-        className={`${
+        className={clsx(
+          "text-lg font-semibold hover:text-teal-200",
           isActive ? "text-teal-400" : "text-white"
-        } text-lg font-semibold`}
+        )}
         href={link}
       >
         {name}

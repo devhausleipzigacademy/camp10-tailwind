@@ -1,4 +1,7 @@
 import NavItem from "./NavItem";
+import { HiMenu } from "react-icons/hi";
+import Sidebar from "./Sidebar";
+import React from "react";
 
 function Navbar() {
   const navItems = [
@@ -17,21 +20,30 @@ function Navbar() {
       link: "/blog",
       isActive: true,
     },
+    {
+      name: "About us",
+      link: "/about-us",
+      isActive: false,
+    },
   ];
   return (
-    <nav className="bg-slate-800 py-4 drop-shadow-sm">
-      <ul className="flex justify-center gap-12">
-        {navItems.map((item) => {
-          return (
-            <NavItem
-              link={item.link}
-              name={item.name}
-              isActive={item.isActive}
-            />
-          );
-        })}
-      </ul>
-    </nav>
+    <>
+      <nav className="bg-slate-800 py-4 drop-shadow-sm flex justify-end">
+        <HiMenu className="text-white mr-7 text-2xl block md:hidden" />
+        <ul className="w-full gap-12 hidden md:flex md:justify-center">
+          {navItems.map((item) => {
+            return (
+              <NavItem
+                link={item.link}
+                name={item.name}
+                isActive={item.isActive}
+              />
+            );
+          })}
+        </ul>
+      </nav>
+      <Sidebar />
+    </>
   );
 }
 
