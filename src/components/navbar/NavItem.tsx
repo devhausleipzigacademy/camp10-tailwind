@@ -1,12 +1,20 @@
 type Props = {
   name: string;
   link: string;
+  isActive: boolean;
 };
 
-function NavItem({ link, name }: Props) {
+function NavItem({ link, name, isActive }: Props) {
   return (
     <li>
-      <a href={link}>{name}</a>
+      <a
+        className={`${
+          isActive ? "text-teal-400" : "text-white"
+        } text-lg font-semibold`}
+        href={link}
+      >
+        {name}
+      </a>
     </li>
   );
 }
