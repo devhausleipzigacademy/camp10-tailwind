@@ -26,7 +26,7 @@ function Sidebar({ items, isOpen }: Props) {
               name={item.name}
               link={item.link}
               isActive={item.isActive}
-              className="text-center py-5 hover:bg-orange-300"
+              className="text-center py-5 hover:bg-secondary"
               key={idx}
             />
           );

@@ -6,11 +6,10 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod quaerat,
-        quo maiores distinctio provident fugiat adipisci ipsam, nemo facilis
-        voluptatum beatae dicta eaque est molestiae animi. Laboriosam unde amet
-        perspiciatis!
+      <main className="container m-auto">
+        <h1 className="heading-font">Welcome to the Blog</h1>
+
+        <h2 className="heading-font">Welcome to the Blog</h2>
       </main>
     </>
   );

@@ -13,7 +13,7 @@ function NavItem({ link, name, isActive, className }: Props) {
       <a
         className={clsx(
           "text-lg font-semibold",
-          isActive ? "text-teal-400" : "text-white"
+          isActive ? "text-primary" : "text-white"
         )}
         href={link}
       >

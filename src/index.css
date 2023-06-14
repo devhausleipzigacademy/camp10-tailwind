@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .heading-font {
+    @apply text-4xl text-center text-slate-800 uppercase font-semibold my-10;
+  }
+}
