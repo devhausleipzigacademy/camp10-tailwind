@@ -1,7 +1,7 @@
 import NavItem from "./NavItem";
 import { HiMenu } from "react-icons/hi";
 import Sidebar from "./Sidebar";
-import React from "react";
+import React, { useState } from "react";
 
 function Navbar() {
   const navItems = [
@@ -31,23 +31,30 @@ function Navbar() {
       isActive: false,
     },
   ];
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <nav className="bg-slate-800 py-4 drop-shadow-sm flex justify-end">
-        <HiMenu className="text-white text-3xl mr-7 block md:hidden" />
+        <HiMenu
+          className="text-white text-3xl mr-7 block md:hidden"
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        />
         <ul className="w-full gap-12 hidden md:flex md:justify-center">
-          {navItems.map((item) => {
+          {navItems.map((item, idx) => {
             return (
               <NavItem
                 link={item.link}
                 name={item.name}
                 isActive={item.isActive}
+                key={idx}
               />
             );
           })}
         </ul>
       </nav>
-      <Sidebar items={navItems} />
+      <Sidebar items={navItems} isOpen={isOpen} />
     </>
   );
 }
