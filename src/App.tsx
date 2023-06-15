@@ -15,7 +15,7 @@ export type BlogPost = {
 };
 
 const initalState = {
-  title: "Heeelou",
+  title: "",
   content: "",
   image: "",
   date: "",
@@ -39,8 +39,15 @@ function App() {
       });
   }, []);
 
-  function onSubmitHandler() {
-    console.log("all my input field values");
+  useEffect(() => {
+    console.log("inside useEffect");
+  }, [formState.title, formState.author]);
+
+  console.log("outside useEffect");
+
+  function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    console.log(formState);
   }
 
   return (
@@ -71,7 +78,10 @@ function App() {
         </div>
         <div>
           <h2 className="heading-font">Create a Blog Post</h2>
-          <form className="flex flex-col gap-3">
+          <form
+            className="flex flex-col gap-3"
+            onSubmit={(e) => onSubmitHandler(e)}
+          >
             <Input
               label="title"
               id="title"
@@ -94,16 +104,36 @@ function App() {
                 }))
               }
             />
-            <Input label="date" id="date" type="date" />
+            <Input
+              label="date"
+              id="date"
+              type="date"
+              value={formState.date}
+              onChange={(e) =>
+                setFormState({ ...formState, date: e.target.value })
+              }
+            />
             <Input
               label="image"
               id="image"
               placeholder="https://some-url.de/example.jpg"
               type="string"
+              value={formState.image}
+              onChange={(e) =>
+                setFormState({ ...formState, image: e.target.value })
+              }
             />
             <label htmlFor="content" className="flex flex-col">
               <span>Content: </span>
-              <textarea id="content" cols={5} rows={10}></textarea>
+              <textarea
+                id="content"
+                cols={5}
+                rows={10}
+                value={formState.content}
+                onChange={(e) =>
+                  setFormState({ ...formState, content: e.target.value })
+                }
+              ></textarea>
             </label>
             <button
               type="submit"
