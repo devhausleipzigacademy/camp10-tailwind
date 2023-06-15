@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./components/card/BlogCard";
 import Navbar from "./components/navbar/Navbar";
+import Counter from "./components/Counter";
+import UpdateUser from "./components/UpdateUser";
 
 export type BlogPost = {
   id: number;
@@ -53,6 +55,7 @@ function App() {
             />
           ))}
         </div>
+        <UpdateUser />
       </main>
     </>
   );

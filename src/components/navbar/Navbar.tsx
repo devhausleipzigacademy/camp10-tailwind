@@ -1,7 +1,7 @@
 import NavItem from "./NavItem";
 import { HiMenu } from "react-icons/hi";
 import Sidebar from "./Sidebar";
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Navbar() {
   const navItems = [

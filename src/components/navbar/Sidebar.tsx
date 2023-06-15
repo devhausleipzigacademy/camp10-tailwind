@@ -15,7 +15,7 @@ function Sidebar({ items, isOpen }: Props) {
   return (
     <aside
       className={clsx(
-        "fixed top-[62px] right-0 w-[250px] h-screen bg-slate-600 md:hidden",
+        "fixed top-[62px] right-0 w-[250px] h-screen bg-slate-600 md:hidden z-40",
         isOpen ? "flex items-center justify-center" : "hidden"
       )}
     >
