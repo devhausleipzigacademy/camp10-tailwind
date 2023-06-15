@@ -3,6 +3,7 @@ import BlogCard from "./components/card/BlogCard";
 import Navbar from "./components/navbar/Navbar";
 import Counter from "./components/Counter";
 import UpdateUser from "./components/UpdateUser";
+import Input from "./components/form/Input";
 
 export type BlogPost = {
   id: number;
@@ -13,8 +14,17 @@ export type BlogPost = {
   content: string;
 };
 
+const initalState = {
+  title: "Heeelou",
+  content: "",
+  image: "",
+  date: "",
+  author: "",
+};
+
 function App() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [formState, setFormState] = useState(initalState);
 
   useEffect(() => {
     fetch("http://localhost:3000/posts")
@@ -28,6 +38,10 @@ function App() {
         console.log(err);
       });
   }, []);
+
+  function onSubmitHandler() {
+    console.log("all my input field values");
+  }
 
   return (
     <>
@@ -55,7 +69,50 @@ function App() {
             />
           ))}
         </div>
-        <UpdateUser />
+        <div>
+          <h2 className="heading-font">Create a Blog Post</h2>
+          <form className="flex flex-col gap-3">
+            <Input
+              label="title"
+              id="title"
+              placeholder="some title here"
+              type="text"
+              value={formState.title}
+              onChange={(e) =>
+                setFormState({ ...formState, title: e.target.value })
+              }
+            />
+            <Input
+              label="author"
+              id="author"
+              placeholder="julian vogel"
+              type="string"
+              onChange={(e) =>
+                setFormState((prev) => ({
+                  ...prev,
+                  author: e.target.value,
+                }))
+              }
+            />
+            <Input label="date" id="date" type="date" />
+            <Input
+              label="image"
+              id="image"
+              placeholder="https://some-url.de/example.jpg"
+              type="string"
+            />
+            <label htmlFor="content" className="flex flex-col">
+              <span>Content: </span>
+              <textarea id="content" cols={5} rows={10}></textarea>
+            </label>
+            <button
+              type="submit"
+              className="text-white bg-primary px-6 py-2 text-center shadow-sm rounded-md"
+            >
+              Create BlogPost
+            </button>
+          </form>
+        </div>
       </main>
     </>
   );

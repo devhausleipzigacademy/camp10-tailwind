@@ -29,6 +29,8 @@ function UpdateUser() {
 
   function onUpdateLastName() {}
 
+  console.log("hai");
+
   return (
     <div>
       <h1 className="text-5xl">{user.firstName}</h1>
