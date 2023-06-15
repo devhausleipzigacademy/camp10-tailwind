@@ -39,11 +39,11 @@ function App() {
       });
   }, []);
 
-  useEffect(() => {
+  /*  useEffect(() => {
     console.log("inside useEffect");
   }, [formState.title, formState.author]);
 
-  console.log("outside useEffect");
+  console.log("outside useEffect"); */
 
   function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
