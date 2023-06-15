@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import BlogCard from "./components/card/BlogCard";
 import Navbar from "./components/navbar/Navbar";
-import Counter from "./components/Counter";
-import UpdateUser from "./components/UpdateUser";
+import axios from "axios";
 import Input from "./components/form/Input";
 
 export type BlogPost = {
@@ -17,7 +16,7 @@ export type BlogPost = {
 const initalState = {
   title: "",
   content: "",
-  image: "",
+  img: "",
   date: "",
   author: "",
 };
@@ -25,6 +24,8 @@ const initalState = {
 function App() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [formState, setFormState] = useState(initalState);
+  const ref = useRef(null);
+  console.log(ref);
 
   useEffect(() => {
     fetch("http://localhost:3000/posts")
@@ -45,9 +46,18 @@ function App() {
 
   console.log("outside useEffect"); */
 
-  function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formState);
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/posts",
+        formState
+      );
+      setBlogPosts([...blogPosts, data]);
+      setFormState(initalState);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -55,7 +65,7 @@ function App() {
       <header>
         <Navbar />
       </header>
-      <main>
+      <main ref={ref}>
         <h1 className="heading-font px-3">Welcome to the Blog</h1>
         <div className="text-center text-slate-500 max-w-3xl m-auto  px-3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores iste
@@ -63,7 +73,7 @@ function App() {
           molestias necessitatibus officia iusto veniam quidem odio dolore
           praesentium ut, aspernatur cumque laboriosam!
         </div>
-        <div className="bg-neutral-100 mt-10 flex gap-5 justify-center p-6 ">
+        <div className="bg-neutral-100 mt-10 flex flex-wrap gap-5 justify-center p-6 ">
           {blogPosts.map((post) => (
             <BlogCard
               author={post.author}
@@ -118,9 +128,9 @@ function App() {
               id="image"
               placeholder="https://some-url.de/example.jpg"
               type="string"
-              value={formState.image}
+              value={formState.img}
               onChange={(e) =>
-                setFormState({ ...formState, image: e.target.value })
+                setFormState({ ...formState, img: e.target.value })
               }
             />
             <label htmlFor="content" className="flex flex-col">
